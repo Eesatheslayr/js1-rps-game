@@ -1,5 +1,9 @@
+let rock
+let paper
+let scissors
+
 function getComputerChoice(){
-    let computerChoice = Math.floor(Math.random()*3)
+    const computerChoice = Math.floor(Math.random()*3)
     if (computerChoice===1){
       return'rock';
     } else if(computerChoice===2){
@@ -7,4 +11,18 @@ function getComputerChoice(){
     } else (computerChoice===3)
       return 'scissors';
   }
-   
+  
+ function getPlayerChoice(){
+   const playerChoice= prompt('ROCK, PAPER OR SCISSORS?').toLowerCase();
+   if(playerChoice==='rock'){
+   return 'You Chose Rock!';
+   } else if(playerChoice==='paper'){
+    return 'You Chose Paper!';
+   }  else if (playerChoice==='scissors')
+    return 'You Chose Scissors!';
+}
+
+
+    
+ 
+ 
