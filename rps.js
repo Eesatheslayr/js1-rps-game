@@ -3,7 +3,7 @@ let paper
 let scissors
 
 function getComputerChoice(){
-    const computerChoice = Math.floor(Math.random()*3)
+    let computerChoice = Math.floor(Math.random()*3)
     if (computerChoice===0){
       return'rock';
     } else if(computerChoice===1){
@@ -11,9 +11,9 @@ function getComputerChoice(){
     } else (computerChoice===2)
       return 'scissors';
   }
-  
- /*function getPlayerChoice(){
-   const playerChoice= prompt('ROCK, PAPER OR SCISSORS?').toLowerCase();
+ /*
+ function getPlayerChoice(){
+   let playerChoice = prompt('ROCK, PAPER OR SCISSORS?').toLowerCase();
    if(playerChoice==='rock'){
    return 'You Chose Rock!';
    } else if(playerChoice==='paper'){
@@ -43,3 +43,25 @@ function playRound(playerChoice, computerChoice){
         return 'Its a Draw!'
     }
 }
+let playerChoice='Rock'
+let computerChoice = Math.floor(Math.random()*3)
+
+function game(){
+    switch (playRound(playerChoice, computerChoice)){
+        case 'You Win! Rock beats Scissors.':
+        case 'You Win! Paper beats Rock':
+        case 'You win! Scissors beats Paper':       
+        return '1-0'
+        break;
+
+        case 'You Lose! Paper beats Rock':
+        case 'You Lose! Scissors beats Paper':
+        case 'You Lose! Rock beats Scissors':
+        return '0-1'
+        break;
+
+        default:
+        return '1-1'
+    }
+}
+console.log(game());
