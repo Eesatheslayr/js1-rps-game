@@ -5,6 +5,8 @@ let playerScore=1;
 let computerScore=1;
 
 
+
+
 function getComputerChoice(){
     let computerChoice= Math.floor(Math.random()*3); 
     if (computerChoice===0){
@@ -14,9 +16,40 @@ function getComputerChoice(){
     } else (computerChoice===2)
       return 'scissors';
   }
- 
+  
+function playRound(playerChoice){
+    let computerChoice= Math.floor(Math.random()*3); 
+   if (playerChoice==='Rock' && computerChoice===0
+   || playerChoice==='paper' && computerChoice===1
+   || playerChoice==='scissors' && computerChoice===2) {
+    console.log('Tie')
+   } else if(playerChoice==='Rock'&& computerChoice===2 
+   || playerChoice==='paper' && computerChoice===0 
+   || playerChoice==='scissors' && computerChoice===1){
+    console.log('You win!')
+   }else {
+    console.log('You Lose!')
+   }   
+}       
 
-function playRound(playerChoice=prompt('ROCK, PAPER OR SCISSORS?').toLowerCase, computerChoice){
+
+const btnOne = document.querySelector('#btn-1');
+const btnTwo =document.querySelector('#btn-2');
+const btnThree =document.querySelector('#btn-3');
+
+btnOne.addEventListener("click",function(){playRound('Rock')});
+btnTwo.addEventListener("click",function(){playRound('paper')});   
+btnThree.addEventListener("click",function(){playRound('scissors')});   
+
+
+
+                
+
+
+
+
+
+/*function playRound(playerChoice=prompt('ROCK, PAPER OR SCISSORS?').toLowerCase, computerChoice){
     if (playerChoice==='rock'&& computerChoice===2){
     return 'You Win! Rock beats Scissors.';
     } else if(playerChoice==='rock' && computerChoice===1){
@@ -67,7 +100,7 @@ let playerChoice=prompt('ROCK, PAPER OR SCISSORS?').toLocaleLowerCase();
         return game();    
     }
   }
-  
+/*  
  function fullGame(){
     console.log(game());
     console.log(game());
@@ -78,3 +111,7 @@ let playerChoice=prompt('ROCK, PAPER OR SCISSORS?').toLocaleLowerCase();
  }
 
  fullGame();
+ */
+
+ 
+ 
