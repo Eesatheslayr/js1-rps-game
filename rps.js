@@ -22,15 +22,20 @@ function playRound(playerChoice){
    if (playerChoice==='Rock' && computerChoice===0
    || playerChoice==='paper' && computerChoice===1
    || playerChoice==='scissors' && computerChoice===2) {
-    console.log('Tie')
+   resultTie.textContent='Its a Tie!'
    } else if(playerChoice==='Rock'&& computerChoice===2 
    || playerChoice==='paper' && computerChoice===0 
    || playerChoice==='scissors' && computerChoice===1){
-    console.log('You win!')
+    resultWin.textContent='You Win!'
+    playerScore++
    }else {
-    console.log('You Lose!')
+    resultLose.textContent='You Lose!'
+    computerScore++
    }   
 }       
+
+
+
 
 
 const btnOne = document.querySelector('#btn-1');
@@ -41,10 +46,14 @@ btnOne.addEventListener("click",function(){playRound('Rock')});
 btnTwo.addEventListener("click",function(){playRound('paper')});   
 btnThree.addEventListener("click",function(){playRound('scissors')});   
 
+const results =document.querySelector("#results");
+const resultWin =document.createElement('Win');
+const resultLose =document.createElement('lose');
+const resultTie =document.createElement('tie');
 
-
-                
-
+results.appendChild(resultWin);
+results.appendChild(resultLose);
+results.appendChild(resultTie);
 
 
 
