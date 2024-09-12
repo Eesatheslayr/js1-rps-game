@@ -1,41 +1,6 @@
-let rock;
-let paper;
-let scissors;
+
 let playerScore=1;
 let computerScore=1;
-
-
-
-
-function getComputerChoice(){
-    let computerChoice= Math.floor(Math.random()*3); 
-    if (computerChoice===0){
-      return'rock';
-    } else if(computerChoice===1){
-      return 'paper';
-    } else (computerChoice===2)
-      return 'scissors';
-  }
-  
-function playRound(playerChoice){
-    let computerChoice= Math.floor(Math.random()*3); 
-   if (playerChoice==='Rock' && computerChoice===0
-   || playerChoice==='paper' && computerChoice===1
-   || playerChoice==='scissors' && computerChoice===2) {
-   resultTie.textContent='Its a Tie!'
-   } else if(playerChoice==='Rock'&& computerChoice===2 
-   || playerChoice==='paper' && computerChoice===0 
-   || playerChoice==='scissors' && computerChoice===1){
-    resultWin.textContent='You Win!'
-    playerScore++
-   }else {
-    resultLose.textContent='You Lose!'
-    computerScore++
-   }   
-}       
-
-
-
 
 
 const btnOne = document.querySelector('#btn-1');
@@ -54,6 +19,25 @@ const resultTie =document.createElement('tie');
 results.appendChild(resultWin);
 results.appendChild(resultLose);
 results.appendChild(resultTie);
+
+
+function playRound(playerChoice){
+    let computerChoice= Math.floor(Math.random()*3); 
+   if (playerChoice==='Rock' && computerChoice===0
+   || playerChoice==='paper' && computerChoice===1
+   || playerChoice==='scissors' && computerChoice===2) {
+    playRound();
+   } else if(playerChoice==='Rock'&& computerChoice===2 
+   || playerChoice==='paper' && computerChoice===0 
+   || playerChoice==='scissors' && computerChoice===1){
+    resultWin.textContent=playerScore++
+   }else {
+    resultLose.textContent=computerScore++
+   }   
+}       
+
+
+
 
 
 
@@ -120,6 +104,16 @@ let playerChoice=prompt('ROCK, PAPER OR SCISSORS?').toLocaleLowerCase();
  }
 
  fullGame();
+
+ function getComputerChoice(){
+    let computerChoice= Math.floor(Math.random()*3); 
+    if (computerChoice===0){
+      return'rock';
+    } else if(computerChoice===1){
+      return 'paper';
+    } else (computerChoice===2)
+      return 'scissors';
+  }
  */
 
  
